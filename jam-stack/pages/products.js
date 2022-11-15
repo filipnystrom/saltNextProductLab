@@ -16,14 +16,12 @@ const Products = () => {
         .then((response) => setProducts(response))
         .catch(console.error)
     }, []);
-
-    console.log(products);
     
     return (
         <div className='products'>
             {products?.items.map(product => 
                 <div className='product' key={product.fields.id}>
-                    <Link href={{pathname: `/products/[id]`, query: { id: product.fields.id, name: product.fields.name, description: product.fields.description }}}>
+                    <Link href={{pathname: `/products/[id]`, query: { id: product.sys.id }}}>
                       <h1>{product.fields.name}</h1>
                     </Link>
                 </div>
