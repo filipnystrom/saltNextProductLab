@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const client = createClient({
     space: 'kbsymavgdoej',
-    environment: 'master', // defaults to 'master' if not set
+    environment: 'master',
     accessToken: 'yY0q9Bjbqwjxyo7eo_qJAYTiWKDro7QiVLFl9b08Ab4'
 });
 
@@ -19,6 +19,11 @@ const Products = () => {
     
     return (
         <div className='products'>
+
+          <h1 className="header">FANKY SHOPPING</h1>
+
+          <section className="gallery">
+
             {products?.items.map(product => 
                 <div className='product' key={product.fields.id}>
                     <Link href={{pathname: `/products/[id]`, query: { id: product.sys.id }}}>
@@ -26,6 +31,8 @@ const Products = () => {
                     </Link>
                 </div>
             )}
+            
+          </section>
         </div>
     )
 }

@@ -4,17 +4,13 @@ import { createClient } from 'contentful';
 
 const client = createClient({
   space: 'kbsymavgdoej',
-  environment: 'master', // defaults to 'master' if not set
+  environment: 'master',
   accessToken: 'yY0q9Bjbqwjxyo7eo_qJAYTiWKDro7QiVLFl9b08Ab4'
 });
 
-/* export async function getStaticProps () {
-  const res = await fetch('/api/productsDb/')
-} */
-
 function ProductPage() {
   const [product, setProduct] = useState(null);
-  const [mongoShit, setMongoShit] = useState(null);
+  const [mongoDb, setMongoDb] = useState(null);
   const router = useRouter();
   const id = router.query.id;
 
@@ -23,7 +19,6 @@ function ProductPage() {
       return;
     }
     client.getEntry(id).then(data => {
-      // console.log(data);
       setProduct(data);
     });
   }, [id])
@@ -35,17 +30,25 @@ function ProductPage() {
     fetch("/api/productsDb/")
       .then((res) => res.json())
       .then((data) => {
-        console.log(product.fields.id);
-        setMongoShit(data.find(({ id }) => id === product.fields.id));
+        setMongoDb(data.find(({ id }) => id === product.fields.id));
       });
   }, [product])
 
   return (
-    <div>
-      <h1>{product?.fields.name}</h1>
-      <p>{product?.fields.description}</p>
-      <h3>In stock: {mongoShit?.stock}</h3>
-    </div>
+    <section className="productPage">
+
+      <h1 className="header">{product?.fields.name}</h1>
+
+      <div className="product productCard">
+        <p>{product?.fields.description}</p>
+        <h3>In stock: {mongoDb?.stock}</h3>
+
+        <a href="http://localhost:3000/products/">
+          <button>Go back</button>
+        </a>
+
+      </div>
+    </section>
   )
 }
 

@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #cdc6c7;
+  color: whitesmoke;
 }
 
 a {
@@ -11,16 +18,66 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+.header {
+  color: #ea5990;
+  text-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.products {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 900px;
+  gap: 20px;
+  align-items:flex-start;
+  justify-content: center;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 280px;
+  height: 140px;
+  padding: 25px 15px 15px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #ea5990;
+  text-align: center;
+  justify-content: center;
+}
+
+.productCard {
+  height: fit-content;
+}
+
+.productPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+button {
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: solid;
+  font-size: 10px;
+  margin: 10px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #efb9cf;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  z-index: 10;
 }
